@@ -6,8 +6,6 @@ class CreateAnswers < ActiveRecord::Migration[6.1]
       t.string :content
 
       t.timestamps
-      
-      t.index [:user_id, :question_id], unique: true
     end
   end
 end
