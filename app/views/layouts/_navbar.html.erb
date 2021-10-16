@@ -6,11 +6,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       
-      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a href="#" class="nav-link">登録</a></li>
-          <li class="nav-item"><a href="#" class="nav-link">ログイン</a></li>
-        </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-left">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link">質問</a></li>
+          </ul>
+        </div>
+        <div class="navbar-right">
+          <ul class="navbar-nav">
+            <li class="nav-item"><%= link_to '登録', signup_path, class: 'nav-link' %></li>
+            <li class="nav-item"><a href="#" class="nav-link">ログイン</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>

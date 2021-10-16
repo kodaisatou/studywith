@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_215515) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_favorites_on_question_id"
+    t.index ["user_id", "question_id"], name: "index_favorites_on_user_id_and_question_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_10_11_215515) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
