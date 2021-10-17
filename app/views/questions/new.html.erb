@@ -1,0 +1,14 @@
+<div class="text-center mb-5">
+  <h1>質問投稿</h1>
+</div>
+  
+<div class="row">
+  <div class="col-sm-8 offset-sm-2 text-center">
+    <%= form_with(model: @question) do |f| %>
+      <div class="mb-4">
+        <%= f.text_area :content, class: 'form-control', rows:8 %>
+      </div>
+      <%= f.submit '質問する', class: 'btn btn-primary w-50' %>
+    <% end %>
+  </div>
+</div>

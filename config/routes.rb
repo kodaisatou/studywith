@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
-  resources :questions, only: [:show, :create, :destroy]
+  resources :questions, only: [:new, :show, :create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
 end

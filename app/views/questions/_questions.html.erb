@@ -1,0 +1,17 @@
+<% if questions.any? %>
+  <div class="row">
+    <% questions.each do |question| %>
+      <div class="questions-index-item col-sm-6 offset-sm-3">
+        <div class="text-center">
+          <div>
+            <%= link_to question.content, question_path(question.content) %>
+          </div>
+          <div>
+            <span class="text-dark text-left"><%= question.user.name %> <%= question.created_at.strftime '%Y/%m/%d' %></span>
+          </div>
+        </div> 
+      </div>
+    <% end %>
+  </div>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>
