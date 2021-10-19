@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
-      get :favorites
+      get :favorite_questions
     end
   end
   
@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
-  resources :questions, only: [:new, :show, :create, :destroy]
+  resources :questions, only: [:new, :show, :create, :destroy] do
+   resources :answers, only: [:create]
+ end
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
 end

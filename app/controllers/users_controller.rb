@@ -29,13 +29,19 @@ class UsersController < ApplicationController
   
   def followings
     @user = User.find(params[:id])
-    @pagy, @followings = pagy(@user.followings)
+    @pagy, @users = pagy(@user.followings)
     counts(@user)
   end
   
   def followers
     @user = User.find(params[:id])
-    @pagy, @followers = pagy(@user.followers)
+    @pagy, @users = pagy(@user.followers)
+    counts(@user)
+  end
+  
+  def favorite_questions
+    @user = User.find(params[:id])
+    @pagy, @questions = pagy(@user.favorite_questions)
     counts(@user)
   end
   

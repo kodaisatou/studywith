@@ -1,0 +1,11 @@
+<% if current_user.favorite_questions?(question) %>
+  <%= form_with(model: current_user.favorites.find_by(question_id: question.id), method: :delete) do |f| %>
+    <%= hidden_field_tag :question_id, question.id, id: "question_id_#{question.id}" %>
+    <%= f.submit 'お気に入り解除', class: 'btn btn-danger btn-sm' %>
+  <% end %>
+<% else %>
+  <%= form_with(model: current_user.favorites.build) do |f| %>
+    <%= hidden_field_tag :question_id, question.id, id: "question_id_#{question.id}" %>
+    <%= f.submit 'お気に入り', class: 'btn btn-primary btn-sm' %>
+  <% end %>
+<% end %>

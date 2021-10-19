@@ -1,0 +1,17 @@
+
+[1mFrom:[0m /home/ubuntu/environment/studywith/app/controllers/questions_controller.rb:15 QuestionsController#create:
+
+    [1;34m13[0m: [32mdef[0m [1;34mcreate[0m
+    [1;34m14[0m:   binding.pry
+ => [1;34m15[0m:   @question = current_user.questions.build(question_params)
+    [1;34m16[0m:   
+    [1;34m17[0m:   [32mif[0m @question.save
+    [1;34m18[0m:     flash[[33m:success[0m] = [31m[1;31m'[0m[31m質問を投稿しました。[1;31m'[0m[31m[0m
+    [1;34m19[0m:     redirect_to @question
+    [1;34m20[0m:   [32melse[0m
+    [1;34m21[0m:     @pagy, @questions = pagy(current_user.questions.order([35mid[0m: [33m:desc[0m))
+    [1;34m22[0m:     flash.now[[33m:danger[0m] = [31m[1;31m'[0m[31m質問の投稿に失敗しました。[1;31m'[0m[31m[0m
+    [1;34m23[0m:     render [33m:new[0m
+    [1;34m24[0m:   [32mend[0m
+    [1;34m25[0m: [32mend[0m
+

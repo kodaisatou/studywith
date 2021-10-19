@@ -1,16 +1,18 @@
 <div class="row">
   <div class="col-sm-4">
-    <h4>
-      <img class="rounded img-fluid" src="<%= gravatar_url(@user, {size: 100}) %> alt=">
-      <%= @user.name %>
-    </h4>
+    <div class="card">
+      <h4>
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, {size: 100}) %> alt=">
+        <%= @user.name %>
+      </h4>
+    </div>
+    <%= render 'relationships/follow_button', user: @user %>
   </div>
-  <%= render 'relationships/follow_button', user: @user %>
 <div class="col-sm-8">
   <ul class="nav nav-tabs nav-justified mb-3">
     <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
     <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー <span class="badge bg-secondary"><%= @count_followers %></span></a></li>
   </ul>
 
-  <%= render 'questions/questions', questions: @questions %>
+  <%= render 'users', users: @users %>
 </div>

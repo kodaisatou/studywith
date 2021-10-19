@@ -1,17 +1,26 @@
 class AnswersController < ApplicationController
+  before_action :require_user_logged_in
+  
   def create
-    @answer = current_user.answers.build(question_params)
+    @answer = current_user.answers.build(answer_params)
+    @answer.question_id = params[:question_id]
     
     if @answer.save
       flash[:success] = '回答を投稿しました。'
-      redirect_to @answer
+      redirect_to ("/questions/#{params[:question_id]}")
     else
-      @pagy, @answers = pagy(current_user.answers.order(id: :desc))
+      @question = Question.find(params[:question_id])
       flash.now[:danger] = '回答の投稿に失敗しました。'
-      render :new
+      render ("questions/show")
     end
   end
 
   def destroy
+  end
+  
+  private
+  
+  def answer_params
+    params.require(:answer).permit(:content)
   end
 end
