@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer = Answer.new
+    @pagy, @answers = pagy(@question.answers)
   end
 
   def create

@@ -1,12 +1,12 @@
 <% if questions.any? %>
-  <div class="row">
+  <div class="inline-brock">
     <% questions.each do |question| %>
       <div class="col-sm-6 offset-sm-3">
         <div>
-          <div>
+          <div class="border">
             <%= link_to question.content, question %>
           </div>
-          <div>
+          <div class="mb-3">
             <%= link_to question.user.name, user_path(question.user) %><span class="text-dark text-left"> <%= question.created_at.strftime '%Y/%m/%d' %></span>
           </div>
         </div>

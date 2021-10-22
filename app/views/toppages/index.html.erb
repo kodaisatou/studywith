@@ -1,7 +1,28 @@
 <% if logged_in? %>
-  <div clas="row">
+  <div class="text-center">
+    <h1 class="mb-5">質問一覧</h1>
+  </div>
+  <div class="row">
     <div class="col-sm-8">
-      <%= render 'questions/questions', questions: @questions %>
+        <% if @questions.any? %>
+          <div class="inline-brock">
+            <% @questions.each do |question| %>
+              <div class="col-sm-6 offset-sm-3">
+                <div>
+                  <div class="border">
+                    <%= link_to question.content, question %>
+                  </div>
+                  <div class="mb-5 text-end">
+                    <%= link_to question.user.name, user_path(question.user) %><span class="text-dark text-left"> <%= question.created_at.strftime '%Y/%m/%d' %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="d-flex flex-row justify-content-evenly">
+          <%== pagy_bootstrap_nav(@pagy) %>
+          </div>
+        <% end %>
     </div>
   </div>
 <% else %>
