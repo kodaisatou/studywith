@@ -5,18 +5,16 @@
   <div class="row">
     <div class="col-sm-8">
         <% if @questions.any? %>
-          <div class="inline-brock">
+          <div class="row">
             <% @questions.each do |question| %>
-              <div class="col-sm-6 offset-sm-3">
                 <div>
                   <div class="border">
-                    <%= link_to question.content, question %>
+                    <%= "(回答数: #{question.answers.size})" %><%= link_to question.content, question %>
                   </div>
                   <div class="mb-5 text-end">
                     <%= link_to question.user.name, user_path(question.user) %><span class="text-dark text-left"> <%= question.created_at.strftime '%Y/%m/%d' %></span>
                   </div>
                 </div>
-              </div>
             <% end %>
           </div>
           <div class="d-flex flex-row justify-content-evenly">

@@ -3,7 +3,7 @@
     <div class="card">
       <h4>
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, {size: 100}) %> alt=">
-        <%= @user.name %>
+        <%= link_to @user.name, user_path(current_user) %>
       </h4>
     </div>
     <%= render 'relationships/follow_button', user: @user %>

@@ -2,13 +2,13 @@
   <div class="text-center">
     <%if logged_in? %>
       <div class="mt-1">
-        <%= link_to 'HOME', root_path, class: 'btn btn-primary' %>
-        <%= link_to '質問', new_question_path, class: 'btn btn-primary' %>
+        <%= link_to 'HOME', root_path %>
+        <%= link_to '質問', new_question_path %>
       </div>
     <% else %>
       <div class="mt-1">
-        <%= link_to 'HOME', root_path, class: 'btn btn-primary' %>
-        <%= link_to '質問', login_path, class: 'btn btn-primary' %>
+        <%= link_to 'HOME', root_path %>
+        <%= link_to '質問', login_path %>
       </div>
     <% end %>
   </div>
