@@ -18,27 +18,5 @@
     <%= link_to '質問', user_path(@user), class: 'btn btn-primary' %><%= @count_questions %>
     <%= link_to 'お気に入り', favorite_questions_user_path(@user), class: 'btn btn-primary' %><%= @count_favorite_questions %>
   </div>
-<% if @questions.any? %>
-  <div>
-    <% @questions.each do |question| %>
-      <div class="col-sm-6 offset-sm-3">
-        <div>
-          <div class="border">
-            <%= link_to simple_format(question.content), question %>
-          </div>
-          <div class="mb-3">
-            <%= link_to question.user.name, user_path(question.user) %><span class="text-dark text-left"> <%= question.created_at.strftime '%Y/%m/%d' %></span>
-          </div>
-        </div>
-        <div>
-          <% if current_user == question.user %>
-            <%= link_to "Delete", question, method: :delete, data: {confirm: "本当に削除しますか？"}, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-          <%= render 'favorites/favorite_button', question: question %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <%== pagy_bootstrap_nav(@pagy) %>
-<% end %>
+  <%= render 'questions/questions', questions: @questions %>
 </div>
