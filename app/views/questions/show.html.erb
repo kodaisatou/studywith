@@ -11,6 +11,7 @@
       <div class="border">
         <%= simple_format(@question.content) %>
       </div>
+      <%= render 'favorites/favorite_button', question: @question %>
     </div> 
   </div>
 </div>
