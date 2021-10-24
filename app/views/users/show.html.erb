@@ -2,12 +2,13 @@
   <div class="col-sm-4">
     <div class="card">
       <h4>
-        <img class="rounded img-fluid" src="<%= gravatar_url(@user, {size: 100}) %> alt=">
+        <img class="rounded img-fluid" src="<%= gravatar_url(@user, {size: 100}) %>" alt="">
         <%= @user.name %>
       </h4>
     </div>
     <%= render 'relationships/follow_button', user: @user %>
   </div>
+</div>
 <div class="col-sm-8">
   <ul class="nav nav-tabs nav-justified mb-3">
     <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー <span class="badge bg-secondary"><%= @count_followings %></span></a></li>
