@@ -10,7 +10,6 @@ class AnswersController < ApplicationController
       redirect_to ("/questions/#{params[:question_id]}")
     else
       @question = Question.find(params[:question_id])
-      @answer = Answer.new
       @pagy, @answers = pagy(@question.answers)
       flash.now[:danger] = '回答の投稿に失敗しました。'
       render ("/questions/show")
