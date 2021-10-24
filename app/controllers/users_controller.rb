@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @pagy, @questions = pagy(@user.questions.order(id: :desc))
-    @question = Question.find(params[:id])
     counts(@user)
   end
 
